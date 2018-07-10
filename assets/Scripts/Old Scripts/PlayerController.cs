@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public InputManager.playerEnum player;
     private Rigidbody2D rb;
     private const float MOVE_SPEED = 5.0f;
     private bool jumped = false;
@@ -12,15 +11,15 @@ public class PlayerController : MonoBehaviour {
     private Vector2 jumpVector = new Vector2(0, 350);
     private float xMov, yMov, xAim, yAim;
     private float shootDelay = 0.1f;
-    public float totalDamage= 0.0f;
+    public InputManager.playerEnum player;
+    public PlayerController teammate;
+    public Buffs buffs;
     public GameObject shotIndicator;
     public GameObject bulletPrefab;
     public GameObject spawnLocation;
     public GameControl.Teams team;
+    public float totalDamage = 0.0f;
     public float health = 10f;
-    public PlayerController teammate;
-    public Buffs buffs;
-
     public int playersHit;
 
 	// Use this for initialization
@@ -64,17 +63,6 @@ public class PlayerController : MonoBehaviour {
 
     private void GetInput()
     {
-        if (InputManager.GetButtonDown(player, "Jump"))
-        {
-            if (CheckGrounded())
-            {
-                jumped = true;
-            }
-            else
-            {
-                Debug.Log(player.ToString() + " couldn't jump");
-            }
-        }
 
         if (InputManager.GetButtonDown(player, "SwitchWeapons"))
         {

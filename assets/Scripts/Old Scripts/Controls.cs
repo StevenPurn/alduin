@@ -15,28 +15,24 @@ public static class InputManager {
 
     public static Dictionary<string, KeyCode> playerOneControls = new Dictionary<string, KeyCode>()
     {
-        { "Jump", KeyCode.Joystick1Button0 },
         { "SwitchWeapons", KeyCode.Joystick1Button3},
         { "Shoot", KeyCode.Joystick1Button10 }
     };
 
     public static Dictionary<string, KeyCode> playerTwoControls = new Dictionary<string, KeyCode>()
     {
-        { "Jump", KeyCode.Joystick2Button0 },
         { "SwitchWeapons", KeyCode.Joystick2Button3},
         { "Shoot", KeyCode.Joystick2Button10 }
     };
 
     public static Dictionary<string, KeyCode> playerThreeControls = new Dictionary<string, KeyCode>()
     {
-        { "Jump", KeyCode.Joystick3Button0 },
         { "SwitchWeapons", KeyCode.Joystick3Button3},
         { "Shoot", KeyCode.Joystick3Button10 }
     };
 
     public static Dictionary<string, KeyCode> playerFourControls = new Dictionary<string, KeyCode>()
     {
-        { "Jump", KeyCode.Joystick4Button0 },
         { "SwitchWeapons", KeyCode.Joystick4Button3},
         { "Shoot", KeyCode.Joystick4Button10 }
     };
@@ -97,9 +93,7 @@ public static class InputManager {
 
     public static float GetAxis(playerEnum player, string axis)
     {
-        float amount = 0.0f;
-        amount = Input.GetAxis(player.ToString() + axis);
-        return amount;
+        return Input.GetAxis(player.ToString() + axis);
     }
 
     public static bool GetButton(playerEnum player, string button)
