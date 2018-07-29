@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public Buffs buffs;
     public GameObject shotIndicator;
     public GameObject bulletPrefab;
-    public GameObject spawnLocation;
+    public Transform spawnLocation;
     public GameControl.Teams team;
     public float totalDamage = 0.0f;
     public float health = 10f;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
         if (shot)
         {
             shot = false;
-            GameObject go = Instantiate(bulletPrefab, spawnLocation.transform.position, shotIndicator.transform.rotation);
+            GameObject go = Instantiate(bulletPrefab, spawnLocation.position, shotIndicator.transform.rotation);
             go.GetComponent<Bullet>().damage *= buffs.damage;
             go.GetComponent<Bullet>().originatingPlayer = this;
             go.transform.Translate(go.transform.forward);
