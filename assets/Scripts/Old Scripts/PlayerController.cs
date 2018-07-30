@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 jumpVector = new Vector2(0, 350);
     private float xMov, yMov, xAim, yAim;
     private float shootDelay = 0.1f;
+
     public InputManager.PlayerEnum player;
     public PlayerController teammate;
     public Buffs buffs;
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour {
     public float health = 10f;
     public int playersHit;
 
-	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         buffs = GetComponent<Buffs>();
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour {
             Debug.Log(player.ToString() + " changed weapons");
         }
 
-        if(InputManager.GetButtonDown(player, "Shoot"))
+        if(InputManager.GetButton(player, "shoot"))
         {
             if (canShoot)
             {
