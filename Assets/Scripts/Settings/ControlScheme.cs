@@ -1,15 +1,14 @@
 ﻿using System.Xml.Serialization;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.Serialization;
+using System.Linq;
 
-[DataContract]
 public class ControlScheme {
 
     [XmlElement("name")]
     public string name = "default";
 
-    [XmlElement("actions"), DataMember]
+    [XmlElement("actions")]
     public Dictionary<string, KeyCode> actions = new Dictionary<string, KeyCode>()
     {
         { "shoot", KeyCode.Space },
@@ -25,6 +24,16 @@ public class ControlScheme {
     public bool ContainsKey(string key)
     {
         return actions.ContainsKey(key);
+    }
+
+    public string[] GetKeys()
+    {
+        return actions.Keys.ToArray();
+    }
+
+    public KeyCode[] GetValues()
+    {
+        return actions.Values.ToArray();
     }
 
     public override string ToString()
