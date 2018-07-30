@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 jumpVector = new Vector2(0, 350);
     private float xMov, yMov, xAim, yAim;
     private float shootDelay = 0.1f;
-    public InputManager.playerEnum player;
+    public InputManager.PlayerEnum player;
     public PlayerController teammate;
     public Buffs buffs;
     public GameObject shotIndicator;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour {
             Debug.Log(player.ToString() + " changed weapons");
         }
 
-        if(InputManager.GetAxis(player, "Shoot") > 0.5f)
+        if(InputManager.GetButtonDown(player, "Shoot"))
         {
             if (canShoot)
             {
@@ -83,10 +83,10 @@ public class PlayerController : MonoBehaviour {
             shot = false;
         }
 
-        xMov = InputManager.GetAxis(player, "Horizontal") * MOVE_SPEED * buffs.speed * Time.deltaTime;
-        yMov = -InputManager.GetAxis(player, "Vertical") * MOVE_SPEED * buffs.speed * Time.deltaTime;
-        xAim = -InputManager.GetAxis(player, "Horizontal2") * MOVE_SPEED * Time.deltaTime;
-        yAim = -InputManager.GetAxis(player, "Vertical2") * MOVE_SPEED * Time.deltaTime;
+        xMov = InputManager.GetAxis(player, "HorL") * MOVE_SPEED * buffs.speed * Time.deltaTime;
+        yMov = -InputManager.GetAxis(player, "VerL") * MOVE_SPEED * buffs.speed * Time.deltaTime;
+        xAim = -InputManager.GetAxis(player, "HorR") * MOVE_SPEED * Time.deltaTime;
+        yAim = -InputManager.GetAxis(player, "VerR") * MOVE_SPEED * Time.deltaTime;
     }
 
     private void SetCanShoot()
