@@ -6,11 +6,7 @@ public class ControlScheme {
 
     public string name = "default";
 
-    public Dictionary<string, KeyCode> actions = new Dictionary<string, KeyCode>()
-    {
-        { "shoot", KeyCode.Space },
-        { "otherthing", KeyCode.Return }
-    };
+    public Dictionary<string, KeyCode> actions = new Dictionary<string, KeyCode>();
 
     public ControlScheme(string name, Dictionary<string, KeyCode> actions)
     {
@@ -35,10 +31,11 @@ public class ControlScheme {
 
     public override string ToString()
     {
-        string result = string.Format("name: {0}\n", name);
+        string result = string.Format("Name: {0}\n", name);
+        result += "Actions:\n";
         foreach (KeyValuePair<string, KeyCode> entry in actions)
         {
-            result += string.Format("{0}: {1}\n", entry.Key, entry.Value);
+            result += string.Format("  {0}: {1}\n", entry.Key, entry.Value);
         }
         return result;
     }
