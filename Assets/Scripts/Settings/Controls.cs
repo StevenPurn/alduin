@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class InputManager {
 
-    public enum playerEnum
+    public enum PlayerEnum
     {
         playerOne = 0,
         playerTwo,
@@ -14,9 +14,9 @@ public static class InputManager {
     // All control schemes loaded from the file
     public static List<ControlScheme> availableControls = new List<ControlScheme>();
     // Control schemes in use for each player 0-3
-    public static List<ControlScheme> playerControls = new List<ControlScheme>();
+    public static ControlScheme[] playerControls = new ControlScheme[4];
     
-    public static bool GetButtonDown(playerEnum player, string button)
+    public static bool GetButtonDown(PlayerEnum player, string button)
     {
         ControlScheme playerControl = playerControls[(int)player];
         if (playerControl.ContainsKey(button))
@@ -28,18 +28,28 @@ public static class InputManager {
         }
     }
 
-    public static string[] GetButtonNames(playerEnum player = 0)
+    public static string[] GetButtonNames(PlayerEnum player = 0)
     {
         ControlScheme playerControl = playerControls[(int)player];
         return playerControl.GetKeys();
     }
 
-    public static float GetAxis(playerEnum player, string axis)
+    public static float GetAxis(PlayerEnum player, string axis)
     {
-        return Input.GetAxis(player.ToString() + axis);
+        string axisName;
+#if UNITY_EDITOR_WIN
+        axisName = player.ToString() + axis + "Win";
+#elif UNITY_EDITOR_OSX
+        axisName = player.ToString() + axis + "OSX";
+#elif UNITY_STANDALONE_OSX
+        axisName = player.ToString() + axis + "OSX";
+#elif UNITY_STANDALONE_WIN
+        axisName = player.ToString() + axis + "Win";
+#endif
+        return Input.GetAxis(axisName);
     }
 
-    public static bool GetButton(playerEnum player, string button)
+    public static bool GetButton(PlayerEnum player, string button)
     {
         ControlScheme playerControl = playerControls[(int)player];
         if (playerControl.ContainsKey(button))
@@ -51,7 +61,7 @@ public static class InputManager {
         }
     }
 
-    public static void SetControlScheme(playerEnum player, ControlScheme scheme)
+    public static void SetControlScheme(PlayerEnum player, ControlScheme scheme)
     {
         playerControls[(int)player] = scheme;
     }
