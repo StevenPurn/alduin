@@ -56,6 +56,11 @@ public static class InputManager {
         playerControls[(int)player] = scheme;
     }
 
+    public static void SaveControlScheme(ControlScheme scheme)
+    {
+        // Append the new control scheme to the json file
+    }
+
     public static void LoadControlSchemes(string platform)
     {
         controlsFilePath = Application.dataPath + string.Format("/Data/Controls/{0}/Controls.json", platform); 
