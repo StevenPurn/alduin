@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public static class InputManager {
 
@@ -13,7 +11,9 @@ public static class InputManager {
         playerFour,
     };
     private static string controlsFilePath = "";
+    // All control schemes loaded from the file
     public static List<ControlScheme> availableControls = new List<ControlScheme>();
+    // Control schemes in use for each player 0-3
     public static List<ControlScheme> playerControls = new List<ControlScheme>();
     
     public static bool GetButtonDown(playerEnum player, string button)
@@ -31,7 +31,7 @@ public static class InputManager {
     public static string[] GetButtonNames(playerEnum player = 0)
     {
         ControlScheme playerControl = playerControls[(int)player];
-        return playerControl.actions.Keys.ToArray();
+        return playerControl.GetKeys();
     }
 
     public static float GetAxis(playerEnum player, string axis)
@@ -58,7 +58,7 @@ public static class InputManager {
 
     public static void LoadControlSchemes(string platform)
     {
-        controlsFilePath = ""; // Set based on platform
-        availableControls = FS.LoadData<List<ControlScheme>>(controlsFilePath, "ArrayOfControlScheme");
+        controlsFilePath = Application.dataPath + string.Format("/Data/Controls/{0}/Controls.json", platform); 
+        availableControls = FS.LoadData<List<ControlScheme>>(controlsFilePath);
     }
 }
