@@ -36,12 +36,12 @@ public static class FS {
         }
     }
 
-    public static T LoadData<T>(string filePath, string xmlRoot, bool loadJson = true)
+    public static T LoadData<T>(string filePath, string xmlRoot = "", bool loadJson = true)
     {
         T result;
         if (loadJson)
         {
-            result = LoadFromJson<T>(filePath, xmlRoot);
+            result = LoadFromJson<T>(filePath);
         } else
         {
             result = LoadFromXML<T>(filePath, xmlRoot);
@@ -61,7 +61,7 @@ public static class FS {
         return result;
     }
 
-    private static T LoadFromJson<T>(string filePath, string xmlRoot)
+    private static T LoadFromJson<T>(string filePath)
     {
         T obj;
         using (StreamReader file = File.OpenText(filePath))
