@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Xml.Serialization;
-using UnityEngine;
 
 public static class FS {
 
@@ -68,7 +67,6 @@ public static class FS {
         using (JsonTextReader reader = new JsonTextReader(file))
         {
             string json = file.ReadToEnd();
-            Debug.Log(json);
             obj = JArray.Parse(json).ToObject<T>();
         }
         return obj;
