@@ -1,0 +1,16 @@
+[
+    {
+        "name": "default",
+        "actions": {
+            "shoot": 32,
+            "otherthing": 13
+        }
+    },
+    {
+        "name": "southpaw",
+        "actions": {
+            "shoot": 13,
+            "otherthing": 32
+        }
+    }
+]
