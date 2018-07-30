@@ -1,14 +1,11 @@
-﻿using System.Xml.Serialization;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class ControlScheme {
 
-    [XmlElement("name")]
     public string name = "default";
 
-    [XmlElement("actions")]
     public Dictionary<string, KeyCode> actions = new Dictionary<string, KeyCode>()
     {
         { "shoot", KeyCode.Space },
