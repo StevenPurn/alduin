@@ -10,7 +10,7 @@ public static class InputManager {
         playerThree,
         playerFour,
     };
-    private static string controlsFilePath = "";
+    private static string controlsFilePath;
     // All control schemes loaded from the file
     public static List<ControlScheme> availableControls = new List<ControlScheme>();
     // Control schemes in use for each player 0-3
