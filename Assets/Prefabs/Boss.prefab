@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4086466741188342}
   - component: {fileID: 212924416439022210}
+  - component: {fileID: 68026369928793642}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,9 +39,10 @@ GameObject:
   - component: {fileID: 212116409170383768}
   - component: {fileID: 114032733509159298}
   - component: {fileID: 114500823670842082}
+  - component: {fileID: 58097225556542374}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,6 +74,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58097225556542374
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742959218434408}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.455
+--- !u!68 &68026369928793642
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521861889848614}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.6744412, y: -0.17937902}
+  - {x: -0.6238702, y: 0.09814564}
+  - {x: -0.4191995, y: 0.38236088}
+  - {x: -0.16359982, y: 0.51884246}
+  - {x: 0.12533647, y: 0.5151202}
+  - {x: 0.38388652, y: 0.42256775}
+  - {x: 0.592175, y: 0.1857293}
+  - {x: 0.66500056, y: -0.009440949}
+  - {x: 0.6650002, y: -0.18409924}
 --- !u!114 &114032733509159298
 MonoBehaviour:
   m_ObjectHideFlags: 1
