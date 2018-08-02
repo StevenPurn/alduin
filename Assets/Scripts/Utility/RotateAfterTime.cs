@@ -12,7 +12,6 @@ public class RotateAfterTime : MonoBehaviour {
     void Start()
     {
         rotationTime = rotationTimer;
-        targetRotation = new Vector3(0, 0, 180);
     }
 
     void Update()
